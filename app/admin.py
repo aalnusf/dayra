@@ -1,5 +1,5 @@
 from django.contrib import admin
-form app.models import Category, Item
+from app.models import Category, Item
 
 
 # Register your models here.

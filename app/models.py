@@ -1,4 +1,4 @@
-from django.db import 
+from django.db import models
 from django.utils import timezone  
 from django.utils.http import urlquote  
 from django.core.mail import send_mail  
@@ -7,16 +7,16 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseU
 # Create your models here.
 
 
-class Category(models.model):
+class Category(models.Model):
     type = models.CharField(max_length=200)
 
     def __unicode__(self):
         return "%s" % self.type
 
-class Item(models.model):
-    item = models.CharField(max_length= 255)
+class Item(models.Model):
+    name = models.CharField(max_length= 255)
     description = models.TextField(null=True, blank=True)
-    type = models.ForeignKey('app.Category')
+    type = models.ForeignKey('app.Category', null=True, blank=True)
     hours = models.FloatField(null=True, blank=True)
     location = models.TextField(null=True, blank=True)
     link = models.URLField(max_length=200, blank=True, null=True)
@@ -26,7 +26,7 @@ class Item(models.model):
     longitude = models.FloatField(null=True, blank=True)
 
     def __unicode__(self):
-        return "%s" % self.item
+        return "%s" % self.name
 
  
 
