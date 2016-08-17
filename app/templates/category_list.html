@@ -6,7 +6,7 @@
 </head>
 
     {% for category in categories %}
-        {{ category.type }}
+        <a href="/item_list/{{category.pk}}"> {{ category.type }}</a>
     {% endfor %}
 
 <body>

@@ -6,14 +6,21 @@
 </head>
 <body>
 
-    {% for item in items %}
-        {{item.name}} |
-        {{item.type}}
+    
+
+    {% for item in category.item_set.all %}
+        <a href="/item_detail/{{item.pk}}">{{item.name}}</a>  
+
         <br>
     {% endfor %}
         
       
-        
+<script>
+    
+
+
+
+</script>   
     
     
 </body>

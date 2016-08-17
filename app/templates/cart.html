@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+</head>
+<body>
+
+        <p>Items in the cart</p>
+
+    {% for item in cart %}
+
+        {{ item.name }} <a href="/item_list/"> <button> Remove</button> </a>
+
+
+    {% endfor %}
+
+    
+    
+</body>
+</html>

@@ -6,16 +6,18 @@
 </head>
 <body>
     
+       <a href="/category_list/"> <button>Back</button> </a>   
 
+        
+        <p>Activity: {{items.name}}</p>
+        <p>Catergory: {{items.type}}</p> 
+        <p>Location: {{items.location}}</p> 
+        <p>description: {{items.description}}</p>
+        <p>More: {{items.link}} </p>
+        <p>Duration: {{items.hours}} hours</p>
+        <p>Cost:{{items.cost_per_hour}} * {{items.hours}} </p>
 
-        {{items.name}} |
-        {{items.type}} | <br>
-        {{items.location}} | <br>
-        {{items.description}} | <br>
-        {{items.link}} | <br>
-        {{items.hours}} |
-        {{items.cost_per_hour}}
-        <br>
+        <a href="/cart/{{item.pk}}"> <button>Add to cart</button> </a>   
 
 
 </body>

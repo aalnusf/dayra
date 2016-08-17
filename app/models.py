@@ -28,5 +28,11 @@ class Item(models.Model):
     def __unicode__(self):
         return "%s" % self.name
 
- 
+class Cart(models.Model):
+    item = models.ManyToManyField('app.Item', null=True, blank=True)
+   #user = models.OneToOneField('app.CustomUser', null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+
+
+
 
