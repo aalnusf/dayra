@@ -54,13 +54,13 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.security.SecurityMiddleware',
 )
 
-AUTHENTICATION_BACKENDS = (  
-    'social.backends.facebook.FacebookOAuth2',
-    'social.backends.google.GoogleOAuth2',
-    'social.backends.twitter.TwitterOAuth',
-    'social.backends.instagram.InstagramOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
-)
+# AUTHENTICATION_BACKENDS = (  
+#     'social.backends.facebook.FacebookOAuth2',
+#     'social.backends.google.GoogleOAuth2',
+#     'social.backends.twitter.TwitterOAuth',
+#     'social.backends.instagram.InstagramOAuth2',
+#     'django.contrib.auth.backends.ModelBackend',
+# )
 
 
 ROOT_URLCONF = 'project.urls'
@@ -101,11 +101,11 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
 
-SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'  
-SOCIAL_AUTH_LOGIN_URL = '/login/' 
+# SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'  
+# SOCIAL_AUTH_LOGIN_URL = '/login/' 
 
-SOCIAL_AUTH_TWITTER_KEY = '46Au0SpXeoWGxRJT1V2Fn8A0D'  
-SOCIAL_AUTH_TWITTER_SECRET = 'wUWJRQEHOEbzFpjvBvJTsghbvzBtica8SfE9gttu6YyaCssWxm'  
+# SOCIAL_AUTH_TWITTER_KEY = '46Au0SpXeoWGxRJT1V2Fn8A0D'  
+# SOCIAL_AUTH_TWITTER_SECRET = 'wUWJRQEHOEbzFpjvBvJTsghbvzBtica8SfE9gttu6YyaCssWxm'  
 
 SOCIAL_AUTH_USER_MODEL = "app.CustomUser"
 
