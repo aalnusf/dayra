@@ -8,14 +8,20 @@
 
         <p>Items in the cart</p>
 
-    {% for item in cart %}
+    {% comment %}
+        {{ cart.item.all }}
+    {% endcomment %}
 
-        {{ item.name }} <a href="/item_list/"> <button> Remove</button> </a>
+    {% for item in cart.item.all %}
+
+        {{ item.name }} <form action="/cart/{{item.pk}}/" method= "post">{% csrf_token %} <input type="submit" value="Remove"> </form> <br>
 
 
     {% endfor %}
 
+    {{ total }} <br>
     
-    
+    <a href="/category_list/"> <button>Back</button> </a>   
+
 </body>
 </html>

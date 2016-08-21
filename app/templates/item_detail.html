@@ -9,15 +9,15 @@
        <a href="/category_list/"> <button>Back</button> </a>   
 
         
-        <p>Activity: {{items.name}}</p>
-        <p>Catergory: {{items.type}}</p> 
-        <p>Location: {{items.location}}</p> 
-        <p>description: {{items.description}}</p>
-        <p>More: {{items.link}} </p>
-        <p>Duration: {{items.hours}} hours</p>
-        <p>Cost:{{items.cost_per_hour}} * {{items.hours}} </p>
+        <p>Activity: {{item.name}}</p>
+        <p>Catergory: {{item.type}}</p> 
+        <p>Location: {{item.location}}</p> 
+        <p>description: {{item.description}}</p>
+        <p>More: {{item.link}} </p>
+        <p>Duration: {{item.hours}} hours</p>
+        <p>Cost:{{item.cost_per_hour}} * {{item.hours}} </p>
 
-        <a href="/cart/{{item.pk}}"> <button>Add to cart</button> </a>   
+        <a href="/cart/{{ item.pk }}/"> <button>Add to cart</button> </a>   
 
 
 </body>
