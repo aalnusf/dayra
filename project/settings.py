@@ -29,6 +29,8 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+AUTH_USER_MODEL = 'app.CustomUser'
+
 
 INSTALLED_APPS = (
     'django.contrib.admin',
@@ -38,6 +40,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'crispy_forms',
+    'social.apps.django_app.default',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -86,6 +90,11 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/'  
+SOCIAL_AUTH_LOGIN_URL = '/login/' 
+
+SOCIAL_AUTH_USER_MODEL = "app.CustomUser"
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -95,6 +104,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 
 # Static files (CSS, JavaScript, Images)

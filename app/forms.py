@@ -1,6 +1,7 @@
 from django import forms 
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm 
-from app.models import CustomUser 
+from app.models import Category, Item, CustomeUserManager, CustomUser
+from django import forms
 
 
 # crispy import:
@@ -19,26 +20,30 @@ from crispy_forms.bootstrap import FormActions
 #   email = forms.EmailField(required=True)
 #   password = forms.CharField(required=True, widget=forms.PasswordInput())
 
-class CustomUserCreationForm(UserCreationForm):
-    def __init__(self, *args, **kargs):
-        super(CustomUserCreationForm, self).__init__(*args, **kargs)
-        
+class CustomUserCreationForm(forms.ModelForm):
+    # def __init__(self, *args, **kargs):
+    #     super(CustomUserCreationForm, self).__init__(*args, **kargs)
+    # email = forms.CharField(max_length=255, required=True)
+    # password = forms.CharField(widget=forms.PasswordInput(), required=True)
+
 
     class Meta:
-        model = CustomUser 
-        fields = '__all__'
+        model = CustomUser
+        fields = ('email', 'password')
 
     def __init__(self, *args, **kwargs):
         super(CustomUserCreationForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.form_action ='signup'
+        self.helper.form_action ='/signup/'
         #self.helper.add_input(Submit('submit', 'Search'))
         self.helper.layout = Layout(
                         
-                        Div('Email', css_class='col-sm-6'),
-                        Div('Password', css_class='col-sm-6'),
-                        Div(FormActions(Submit('submit','signup')))
+                        Div('email', css_class='col-sm-5', style= 'margin-top: 200px'),
+                        Div('password', css_class='col-sm-5', style= 'margin-top: 200px'),
+                        Div(FormActions(Submit('submit','signup'),
+                            css_class= 'col-sm-2',
+                            style= 'margin-top: 200px'))
                 
                     )
 
@@ -62,16 +67,18 @@ class CustomUserLoginForm(forms.Form):
         super(CustomUserLoginForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        self.helper.form_action = 'login'
+        self.helper.form_action = '/login_view/'
         #self.helper.add_input(Submit('submit', 'Search'))
         self.helper.layout = Layout(
-                    Div('email', css_class='col-sm-6 col-md-6'), 
-                    Div('password', css_class='col-sm-6 col-md-6'),
-                    Div(
-                        FormActions(
-                            Submit('submit', 'Sign Up')
-                        ),
-                    css_class='col-sm-12 col-md-12',
-                    style='margin-top:25px;'
+                        
+                        Div('email', css_class='col-sm-5', style= 'margin-top: 200px'),
+                        Div('password', css_class='col-sm-5', style= 'margin-top: 200px'),
+                        Div(FormActions(Submit('submit','Log in'),
+                            css_class= 'col-sm-2',
+                            style= 'margin-top: 200px')) 
                     )
-            )    
+
+class ContactForm(forms.Form):
+   Name = forms.CharField(required=True)
+   Email = forms.EmailField(required=True)
+   Message = forms.CharField(required=True, widget=forms.Textarea)
